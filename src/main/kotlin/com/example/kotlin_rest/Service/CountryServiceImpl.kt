@@ -11,7 +11,7 @@ class CountryServiceImpl(
 ) : CountryService
 {
     override fun getAll(): List<CountyDto> {
-        return countryRepository.findAll().map {
+        return countryRepository.findByOrderByName().map {
             it.toDto()
         }
     }
