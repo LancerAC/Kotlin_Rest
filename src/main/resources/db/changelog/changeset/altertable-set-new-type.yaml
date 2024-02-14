@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: modify-column-type
+      author: lancerAC
+      runOnChange: true
+      changes:
+        - modifyDataType:
+            tableName: country
+            columnName: id
+            newDataType: integer
