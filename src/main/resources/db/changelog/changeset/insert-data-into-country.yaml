@@ -1,0 +1,103 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: lancerAC
+      runOnChange: true
+      changes:
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 1
+              - column:
+                  name: name
+                  value: 'USA'
+              - column:
+                  name: population
+                  valueNumeric: 328200000
+
+  - changeSet:
+      id: 2
+      author: lanceAC
+      changes:
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 2
+              - column:
+                  name: name
+                  value: 'China'
+              - column:
+                  name: population
+                  valueNumeric: 1439323776
+
+  - changeSet:
+      id: 3
+      author: lancerAC
+      changes:
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 3
+              - column:
+                  name: name
+                  value: 'Brazil'
+              - column:
+                  name: population
+                  valueNumeric: 212559417
+
+  - changeSet:
+      id: 4
+      author: lancerAC
+      changes:
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 4
+              - column:
+                  name: name
+                  value: 'India'
+              - column:
+                  name: population
+                  valueNumeric: 1380004385
+
+  - changeSet:
+      id: 5
+      author: lancerAC
+      changes:
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 5
+              - column:
+                  name: name
+                  value: 'Russia'
+              - column:
+                  name: population
+                  valueNumeric: 145934462
+
+  - changeSet:
+      id: 6
+      author: lancerAC
+      changes:
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 6
+              - column:
+                  name: name
+                  value: 'Japan'
+              - column:
+                  name: population
+                  valueNumeric: 126476461
