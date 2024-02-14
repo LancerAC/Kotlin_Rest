@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface CountryRepository : CrudRepository<CountryEntity, Int>{
+
+    fun findByOrderByName(): List<CountryEntity>
 }
