@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_country_table
+      author: lancerAC
+      runOnChange: true
+      changes:
+        - createTable:
+            tableName: country
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: population
+                  type: bigint
