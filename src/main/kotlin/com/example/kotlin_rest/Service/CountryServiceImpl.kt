@@ -1,13 +1,16 @@
 package com.example.kotlin_rest.Service
 
 
-import CountryDto
+import com.example.kotlin_rest.Dto.CityDto
+import com.example.kotlin_rest.Dto.CountryDto
+import com.example.kotlin_rest.Entity.CityEntity
 import com.example.kotlin_rest.Entity.CountryEntity
+import com.example.kotlin_rest.Exception.CountryNotFoundExcep
 import com.example.kotlin_rest.Repository.CountryRepository
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
-import kotlin.jvm.optionals.getOrNull
+
 
 @Service
 class CountryServiceImpl(
@@ -24,7 +27,7 @@ class CountryServiceImpl(
     override fun findById(id: Int): CountryDto {
         return  countryRepository.findByIdOrNull(id)
             ?.toDto()
-            ?: throw  RuntimeException("Country not found")
+            ?: throw  CountryNotFoundExcep(id)
     }
 
     override fun searchCountries(name: String): CountryDto {
@@ -37,6 +40,7 @@ class CountryServiceImpl(
 
     override fun createCountry(country: CountryDto){
         val newCountry = CountryEntity.Builder()
+            .id(country.id)
             .name(country.name)
             .population(country.population)
             .build()
@@ -45,13 +49,16 @@ class CountryServiceImpl(
 
 
     }
-
+    private fun CityEntity.toDto(): CityDto =
+        CityDto(
+            name = this.name,
+        )
 
     private fun CountryEntity.toDto(): CountryDto =
         CountryDto(
             id = this.id,
             name = this.name,
             population = this.population,
+            cityList = this.cityList.map { it.toDto() }
         )
-
     }
