@@ -1,9 +1,7 @@
-package com.example.kotlin_rest.Dto
-
-data class CountyDto(
-
+data class CountryDto(
     val id: Int,
     val name: String,
-    val population: Int,
+    val population: Int
+)
 
-    )
+
