@@ -5,3 +5,5 @@ databaseChangeLog:
       file: db/changelog/changeset/altertable-set-new-type.yaml
   - include:
       file: db/changelog/changeset/insert-data-into-country.yaml
+  - include:
+      file: db/changelog/changeset/create-city-table.yaml
