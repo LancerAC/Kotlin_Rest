@@ -30,6 +30,10 @@ class CountryServiceImpl(
         return countryRepository.findByName(name)
     }
 
+    override fun deleteById(id: Int) {
+        countryRepository.deleteById(id)
+    }
+
 
     private fun CountryEntity.toDto(): CountyDto =
         CountyDto(

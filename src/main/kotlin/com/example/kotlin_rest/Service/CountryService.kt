@@ -11,4 +11,6 @@ interface CountryService {
     fun findById(id: Int): CountyDto
 
     fun searchCountries(name: String): CountyDto
+
+    fun deleteById(id: Int)
 }

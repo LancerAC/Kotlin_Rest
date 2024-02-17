@@ -2,8 +2,10 @@ package com.example.kotlin_rest.Controller
 
 import com.example.kotlin_rest.Dto.CountyDto
 import com.example.kotlin_rest.Service.CountryService
+import jakarta.transaction.Transactional
 import lombok.RequiredArgsConstructor
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -30,4 +32,8 @@ class CountryController (
     fun searchCountries(@RequestParam("name") searchText:  String):
             CountyDto =
         countryService.searchCountries(searchText)
+
+    @DeleteMapping("/{id}")
+    fun deleteCountryById(@PathVariable id: Int) =
+        countryService.deleteById(id)
 }
