@@ -26,4 +26,8 @@ class CountryController (
     fun getById(@PathVariable id: Int): CountyDto =
         countryService.findById(id)
 
+    @GetMapping("/name")
+    fun searchCountries(@RequestParam("name") searchText:  String):
+            CountyDto =
+        countryService.searchCountries(searchText)
 }

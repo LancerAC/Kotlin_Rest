@@ -9,4 +9,6 @@ interface CountryService {
     fun getAll(pageIndex: Int): List<CountyDto>
 
     fun findById(id: Int): CountyDto
+
+    fun searchCountries(name: String): CountyDto
 }

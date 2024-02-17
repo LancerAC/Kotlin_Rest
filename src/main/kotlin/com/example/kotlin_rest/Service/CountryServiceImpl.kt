@@ -26,6 +26,11 @@ class CountryServiceImpl(
             ?: throw  RuntimeException("Country not found")
     }
 
+    override fun searchCountries(name: String): CountyDto {
+        return countryRepository.findByName(name)
+    }
+
+
     private fun CountryEntity.toDto(): CountyDto =
         CountyDto(
             id = this.id,
