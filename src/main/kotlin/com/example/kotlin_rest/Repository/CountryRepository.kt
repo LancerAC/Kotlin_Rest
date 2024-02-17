@@ -1,6 +1,7 @@
 package com.example.kotlin_rest.Repository
 
-import CountryDto
+
+import com.example.kotlin_rest.Dto.CountryDto
 import com.example.kotlin_rest.Entity.CountryEntity
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.repository.CrudRepository

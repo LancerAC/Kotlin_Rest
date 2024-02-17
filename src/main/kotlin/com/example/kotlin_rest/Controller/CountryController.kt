@@ -1,6 +1,7 @@
 package com.example.kotlin_rest.Controller
 
-import CountryDto
+
+import com.example.kotlin_rest.Dto.CountryDto
 import com.example.kotlin_rest.Service.CountryService
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping

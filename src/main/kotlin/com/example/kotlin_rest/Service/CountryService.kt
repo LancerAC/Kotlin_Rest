@@ -1,6 +1,7 @@
 package com.example.kotlin_rest.Service
 
-import CountryDto
+
+import com.example.kotlin_rest.Dto.CountryDto
 import org.springframework.stereotype.Service
 
 @Service
