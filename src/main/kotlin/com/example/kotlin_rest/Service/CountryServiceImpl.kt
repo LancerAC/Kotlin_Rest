@@ -1,6 +1,7 @@
 package com.example.kotlin_rest.Service
 
-import com.example.kotlin_rest.Dto.CountyDto
+
+import CountryDto
 import com.example.kotlin_rest.Entity.CountryEntity
 import com.example.kotlin_rest.Repository.CountryRepository
 import org.springframework.data.domain.PageRequest
@@ -13,20 +14,20 @@ class CountryServiceImpl(
     private val countryRepository: CountryRepository
 ) : CountryService
 {
-    override fun getAll(pageIndex: Int): List<CountyDto> {
+    override fun getAll(pageIndex: Int): List<CountryDto> {
         return countryRepository.findByOrderByName(PageRequest
             .of(pageIndex, 2)).map {
             it.toDto()
         }
     }
 
-    override fun findById(id: Int): CountyDto {
+    override fun findById(id: Int): CountryDto {
         return  countryRepository.findByIdOrNull(id)
             ?.toDto()
             ?: throw  RuntimeException("Country not found")
     }
 
-    override fun searchCountries(name: String): CountyDto {
+    override fun searchCountries(name: String): CountryDto {
         return countryRepository.findByName(name)
     }
 
@@ -34,9 +35,20 @@ class CountryServiceImpl(
         countryRepository.deleteById(id)
     }
 
+    override fun createCountry(country: CountryDto){
+        val newCountry = CountryEntity.Builder()
+            .name(country.name)
+            .population(country.population)
+            .build()
 
-    private fun CountryEntity.toDto(): CountyDto =
-        CountyDto(
+        countryRepository.save(newCountry)
+
+
+    }
+
+
+    private fun CountryEntity.toDto(): CountryDto =
+        CountryDto(
             id = this.id,
             name = this.name,
             population = this.population,
