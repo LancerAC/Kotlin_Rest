@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_city_table
+      author: lancerAC
+      runOnChange: true
+      changes:
+        - createTable:
+            tableName: city
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_id
+                  type: integer
+                  constraints:
+                    nullable: false
+            foreignKeyConstraints:
+              - foreignKeyConstraint:
+                  baseColumnNames: country_id
+                  baseTableName: city
+                  referencedColumnNames: id
+                  referencedTableName: country
+                  constraintName: city_country_fk
