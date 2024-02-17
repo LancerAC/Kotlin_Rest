@@ -1,6 +1,6 @@
 package com.example.kotlin_rest.Controller
 
-import com.example.kotlin_rest.Dto.CountyDto
+import CountryDto
 import com.example.kotlin_rest.Service.CountryService
 import jakarta.transaction.Transactional
 import lombok.RequiredArgsConstructor
@@ -20,17 +20,17 @@ class CountryController (
 
 ){
     @GetMapping
-    fun getAll(@RequestParam("page") pageIndex: Int): List<CountyDto> =
+    fun getAll(@RequestParam("page") pageIndex: Int): List<CountryDto> =
 
         countryService.getAll(pageIndex)
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: Int): CountyDto =
+    fun getById(@PathVariable id: Int): CountryDto =
         countryService.findById(id)
 
     @GetMapping("/name")
     fun searchCountries(@RequestParam("name") searchText:  String):
-            CountyDto =
+            CountryDto =
         countryService.searchCountries(searchText)
 
     @DeleteMapping("/{id}")

@@ -1,6 +1,6 @@
 package com.example.kotlin_rest.Repository
 
-import com.example.kotlin_rest.Dto.CountyDto
+import CountryDto
 import com.example.kotlin_rest.Entity.CountryEntity
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.repository.CrudRepository
@@ -11,5 +11,5 @@ interface CountryRepository : CrudRepository<CountryEntity, Int>{
 
     fun findByOrderByName(pageable: PageRequest): List<CountryEntity>
 
-    fun findByName(name: String): CountyDto
+    fun findByName(name: String): CountryDto
 }
