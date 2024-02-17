@@ -4,7 +4,9 @@ import com.example.kotlin_rest.Dto.CountyDto
 import com.example.kotlin_rest.Entity.CountryEntity
 import com.example.kotlin_rest.Repository.CountryRepository
 import org.springframework.data.domain.PageRequest
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
+import kotlin.jvm.optionals.getOrNull
 
 @Service
 class CountryServiceImpl(
@@ -16,6 +18,12 @@ class CountryServiceImpl(
             .of(pageIndex, 2)).map {
             it.toDto()
         }
+    }
+
+    override fun findById(id: Int): CountyDto {
+        return  countryRepository.findByIdOrNull(id)
+            ?.toDto()
+            ?: throw  RuntimeException("Country not found")
     }
 
     private fun CountryEntity.toDto(): CountyDto =
