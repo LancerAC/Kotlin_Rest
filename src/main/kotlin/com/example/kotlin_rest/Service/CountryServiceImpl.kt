@@ -52,6 +52,7 @@ class CountryServiceImpl(
     private fun CityEntity.toDto(): CityDto =
         CityDto(
             name = this.name,
+            id = this.id
         )
 
     private fun CountryEntity.toDto(): CountryDto =
