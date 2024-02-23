@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: remove_column_from_table
+      author: lancerAC
+      changes:
+        - dropColumn:
+            tableName: city
+            columnName: population
